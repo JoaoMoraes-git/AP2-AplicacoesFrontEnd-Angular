@@ -1,12 +1,12 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component } from '@angular/core';
+import { Navbar } from './components/navbar/navbar';
+import { TarefaForm } from './components/tarefa-form/tarefa-form';
+import { TarefaList } from './components/tarefa-list/tarefa-list';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [Navbar, TarefaForm, TarefaList],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
-export class App {
-  protected readonly title = signal('ap2-crud-angular-json-server');
-}
+export class App {}

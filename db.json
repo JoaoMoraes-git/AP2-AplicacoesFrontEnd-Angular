@@ -1,0 +1,18 @@
+{
+    "tarefas": [
+        {
+            "id": "1",
+            "descricao": "Colocar o lixo para fora",
+            "nivelImportancia": "2",
+            "dataCriado": "2026-05-26",
+            "pendente": true
+        },
+        {
+            "id": "2",
+            "descricao": "Dar uma caminhada",
+            "nivelImportancia": "1",
+            "dataCriado": "2026-05-26",
+            "pendente": true
+        }
+    ]
+}

@@ -1,0 +1,43 @@
+import { Component, EventEmitter, inject, Output } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { Tarefa } from '../../models/tarefa';
+import { TarefaService } from '../../services/tarefa.service';
+
+@Component({
+  selector: 'app-tarefa-form',
+  imports: [FormsModule],
+  templateUrl: './tarefa-form.html',
+  styleUrl: './tarefa-form.css'
+})
+export class TarefaForm {
+  @Output() salvo = new EventEmitter<void>();
+
+  private readonly tarefaService = inject(TarefaService);
+
+  tarefa: Tarefa = {
+    id: '',
+    descricao: '',
+    nivelImportancia: 0,
+    dataCriado: Date.now(),
+    pendente: true
+  };
+
+  salvar(): void {
+    this.tarefaService.criar(this.tarefa).subscribe({
+      next: () => {
+        this.tarefa = {
+          id: '',
+          descricao: '',
+          nivelImportancia: 0,
+          dataCriado: Date.now(),
+          pendente: true
+        };
+
+        this.salvo.emit();
+      },
+      error: (erro) => {
+        console.error('Erro ao salvar tarefa:', erro);
+      }
+    });
+  }
+}
