@@ -1,9 +1,12 @@
 import { Component, inject } from '@angular/core';
 import { Tarefa } from '../../models/tarefa';
 import { TarefaService } from '../../services/tarefa.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-tarefa-list',
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './tarefa-list.html',
   styleUrl: './tarefa-list.css'
 })

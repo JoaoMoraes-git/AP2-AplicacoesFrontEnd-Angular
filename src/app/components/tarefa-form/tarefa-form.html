@@ -1,1 +1,43 @@
-<p>tarefa-form works!</p>
+<section class="card">
+    <h2>Adicione uma nova tarefa aqui</h2>
+
+    <form class="form" (ngSubmit)="salvar()">
+        <label>
+            <input
+            type="text"
+            [(ngModel)]="tarefa.descricao"
+            name="descricao"
+            placeholder="Escreva a tarefa aqui">
+        </label>
+        <label>
+            <div>
+                <input type="radio" 
+                [(ngModel)]="tarefa.nivelImportancia"
+                id="nivel-baixo" 
+                name="nivelImportancia" 
+                [value]="1">
+                <label for="nivel-baixo">Baixo</label>
+            </div>
+            <div>
+                <input type="radio"
+                [(ngModel)]="tarefa.nivelImportancia" 
+                id="nivel-medio" 
+                name="nivelImportancia" 
+                [value]="2">
+                <label for="nivel-medio">Medio</label>
+            </div>
+            <div>
+                <input type="radio" 
+                [(ngModel)]="tarefa.nivelImportancia"
+                id="nivel-alto" 
+                name="nivelImportancia" 
+                [value]="3">
+                <label for="nivel-alto">Alto</label>
+            </div>
+        </label>
+        <button type="submit">Enviar Tarefa</button>
+    </form>
+
+</section>
+
+<h1>Título do form</h1>

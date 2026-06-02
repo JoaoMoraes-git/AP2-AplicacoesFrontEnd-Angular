@@ -3,5 +3,6 @@ export interface Tarefa {
     descricao: string;
     nivelImportancia: number;
     dataCriado: number;
+    dataLimite: number
     pendente: boolean;
 }

@@ -1,1 +1,28 @@
-<p>tarefa-list works!</p>
+<section class="card">
+    <h1>Tarefas</h1>
+
+    @if(tarefas.length > 0) {
+        <table>
+            <thead>
+                <th>ID</th>
+                <th>Descrição</th>
+                <th>Nível de importância</th>
+                <th>Data de criação</th>
+                <th>Data Limite</th>
+                <th>Pendente</th>
+            </thead>
+            <tbody>
+                @for (tarefa of tarefas; track tarefa.id){
+                    <tr>
+                        <td>{{ tarefa.id }}</td>
+                        <td>{{ tarefa.descricao }}</td>
+                        <td>{{ tarefa.nivelImportancia }}</td>
+                        <td>{{ tarefa.dataCriado | date: 'dd/MM/yyyy' }}</td>
+                        <td>{{ tarefa.dataLimite }}</td>
+                        <td>{{ tarefa.pendente }}</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</section>

@@ -19,6 +19,7 @@ export class TarefaForm {
     descricao: '',
     nivelImportancia: 0,
     dataCriado: Date.now(),
+    dataLimite: Date.now(), //Colocar para o usuário definir o tempo
     pendente: true
   };
 
@@ -30,6 +31,7 @@ export class TarefaForm {
           descricao: '',
           nivelImportancia: 0,
           dataCriado: Date.now(),
+          dataLimite: Date.now(),
           pendente: true
         };
 

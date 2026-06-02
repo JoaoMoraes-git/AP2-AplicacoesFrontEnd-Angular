@@ -1,0 +1,18 @@
+.card {
+    border: 1px solid
+}
+
+input {
+    background-color: rgb(224, 224, 228);
+    border-: ;
+    border-radius: 5px;
+}
+
+button {
+    width: fit-content;
+    cursor: pointer;
+}
+
+h2{
+    margin-top: 0;
+}
