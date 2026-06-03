@@ -1,0 +1,21 @@
+.navbar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(34, 140, 240);
+    color: rgb(255, 255, 255);
+    border-radius: 10px;
+}
+
+.navbar-div{
+    text-align: center;
+    padding: 5px;
+}
+
+.navbar-div h1{
+    margin: 3px;
+    font-size: 60px;
+}
+
+
+

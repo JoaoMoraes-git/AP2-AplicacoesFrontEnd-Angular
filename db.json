@@ -1,30 +1,6 @@
 {
   "tarefas": [
     {
-      "id": "2",
-      "descricao": "Fazer o trabalho de Front-End",
-      "nivelImportancia": 2,
-      "dataCriado": 1780453305520,
-      "dataLimite": 1780539705520,
-      "pendente": true
-    },
-    {
-      "id": "3",
-      "descricao": "Teste colocando um texto muito grande aqui nesse campo",
-      "nivelImportancia": 1,
-      "dataCriado": 1780456466306,
-      "dataLimite": 1780542866306,
-      "pendente": true
-    },
-    {
-      "descricao": "222",
-      "nivelImportancia": 1,
-      "dataCriado": 1780456951025,
-      "dataLimite": 1780543351025,
-      "pendente": true,
-      "id": "l7_VLP-LLQw"
-    },
-    {
       "descricao": "aaaa",
       "nivelImportancia": 2,
       "dataCriado": 1780456995338,
@@ -55,6 +31,46 @@
       "dataLimite": 1780630018391,
       "pendente": true,
       "id": "fQjHYvFiiXU"
+    },
+    {
+      "descricao": "Levar o lixo para fora",
+      "nivelImportancia": 1,
+      "dataCriado": 1780493559541,
+      "dataLimite": 1780752759541,
+      "pendente": true,
+      "id": "Uh5qP1UtzH0"
+    },
+    {
+      "descricao": "wwwwwwwww",
+      "nivelImportancia": 1,
+      "dataCriado": 1780498667219,
+      "dataLimite": 1780757867219,
+      "pendente": true,
+      "id": "laCzkkUK7bY"
+    },
+    {
+      "descricao": "aqqq",
+      "nivelImportancia": 1,
+      "dataCriado": 1780514961111,
+      "dataLimite": 1780860561111,
+      "pendente": true,
+      "id": "NbzsqMqefv8"
+    },
+    {
+      "descricao": "test",
+      "nivelImportancia": 2,
+      "dataCriado": 1780515446356,
+      "dataLimite": 1780861046356,
+      "pendente": true,
+      "id": "lFKe8MFqZDo"
+    },
+    {
+      "descricao": "oii",
+      "nivelImportancia": 1,
+      "dataCriado": 1780515458932,
+      "dataLimite": 1806435458932,
+      "pendente": true,
+      "id": "WePJwins7SA"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
