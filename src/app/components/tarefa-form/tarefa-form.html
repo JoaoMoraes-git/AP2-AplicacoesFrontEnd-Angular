@@ -1,12 +1,14 @@
 <section class="card">
     <h2>Adicione uma nova tarefa aqui</h2>
 
-    <form class="form" (ngSubmit)="salvar()">
+    <form #form="ngForm" (ngSubmit)="salvar()">
         <label>
             Descrição da tarefa
             <input
             type="text"
             [(ngModel)]="tarefa.descricao"
+            minlength="3"
+            required
             name="descricao"
             placeholder="Escreva a tarefa aqui">
         </label>
@@ -18,7 +20,8 @@
                 <input type="radio" 
                 [(ngModel)]="tarefa.nivelImportancia"
                 id="nivel-baixo" 
-                name="nivelImportancia" 
+                name="nivelImportancia"
+                required 
                 [value]="1">
                 <label for="nivel-baixo">Baixo</label>
             </div>
@@ -27,6 +30,7 @@
                 [(ngModel)]="tarefa.nivelImportancia" 
                 id="nivel-medio" 
                 name="nivelImportancia" 
+                required
                 [value]="2">
                 <label for="nivel-medio">Medio</label>
             </div>
@@ -35,6 +39,7 @@
                 [(ngModel)]="tarefa.nivelImportancia"
                 id="nivel-alto" 
                 name="nivelImportancia" 
+                required
                 [value]="3">
                 <label for="nivel-alto">Alto</label>
             </div>
@@ -43,13 +48,27 @@
             Prazo em dias
             <input 
             type="number"
-            min="1"
             [(ngModel)]="prazoDias"
             (input)="prazoDias = $any($event.target).valueAsNumber"
+            min="0"
+            required
             name="prazoDias"
             placeholder="Limite de dias para realizar a tarefa">
         </label>
-        <button type="submit">Enviar Tarefa</button>
+
+        @if (form.controls['descricao']?.invalid){
+            <p class="erro-validacao">A descrição deve ter no mínimo 3 caractéres e não pode ser vazia</p>
+        }
+
+        @if (form.controls['nivelImportancia']?.invalid){
+            <p class="erro-validacao">Nível de importância é obrigatório</p>
+        }
+
+        @if (form.controls['prazoDias']?.invalid){
+            <p class="erro-validacao">Prazo não pode ser negativo ou vazio</p>
+        }
+
+        <button type="submit" [disabled]="form.invalid">{{ form.invalid ? 'Preencha todos os campos' : 'Enviar Tarefa' }}</button>
     </form>
 
 </section>

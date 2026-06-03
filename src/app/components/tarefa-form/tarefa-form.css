@@ -16,3 +16,9 @@ button {
 h2{
     margin-top: 0;
 }
+
+.erro-validacao {
+    color: red;
+    font-size: 12px;
+    margin: 5px 0;
+}

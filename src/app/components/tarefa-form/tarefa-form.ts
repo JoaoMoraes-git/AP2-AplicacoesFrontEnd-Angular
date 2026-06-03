@@ -16,18 +16,33 @@ export class TarefaForm {
   private readonly cdr = inject(ChangeDetectorRef);
   private readonly tarefaService = inject(TarefaService);
 
-  prazoDias = 1;
+  prazoDias: number | null = null;
 
   tarefa: Tarefa = {
     id: '',
     descricao: '',
-    nivelImportancia: 0,
+    nivelImportancia: null as unknown as number,
     dataCriado: Date.now(),
     dataLimite: Date.now(), //Colocar para o usuário definir o tempo
     pendente: true
   };
 
   salvar(): void {
+    if (!this.tarefa.descricao || this.tarefa.descricao.trim() === '') {
+      alert('Por favor, digite uma descrição');
+      return;
+    }
+
+    if (!this.tarefa.nivelImportancia || this.tarefa.nivelImportancia <= 0) {
+      alert('Por favor, escolha um nível de importância');
+      return;
+    }
+
+    if (!this.prazoDias || this.prazoDias <= 0) {
+      alert('Por favor, defina um prazo válido (mínimo 1 dia)');
+      return;
+    }
+
     const agora = Date.now();
     const prazo = this.prazoDias * 24 * 60 * 60 * 1000;
     const tarefaComPrazo: Tarefa = {
@@ -41,14 +56,15 @@ export class TarefaForm {
         this.tarefa = {
           id: '',
           descricao: '',
-          nivelImportancia: 0,
+          nivelImportancia: null as unknown as number,
           dataCriado: Date.now(),
           dataLimite: Date.now(),
           pendente: true
         };
-        this.prazoDias = 1;
+        this.prazoDias = null;
 
         this.salvo.emit();
+        alert('A tarefa foi adicionada');
       },
       error: (erro) => {
         console.error('Erro ao salvar tarefa:', erro);
