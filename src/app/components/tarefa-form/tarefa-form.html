@@ -3,6 +3,7 @@
 
     <form class="form" (ngSubmit)="salvar()">
         <label>
+            Descrição da tarefa
             <input
             type="text"
             [(ngModel)]="tarefa.descricao"
@@ -10,6 +11,9 @@
             placeholder="Escreva a tarefa aqui">
         </label>
         <label>
+            <div>
+                Nível de importância
+            </div>
             <div>
                 <input type="radio" 
                 [(ngModel)]="tarefa.nivelImportancia"
@@ -34,6 +38,16 @@
                 [value]="3">
                 <label for="nivel-alto">Alto</label>
             </div>
+        </label>
+        <label>
+            Prazo em dias
+            <input 
+            type="number"
+            min="1"
+            [(ngModel)]="prazoDias"
+            (input)="prazoDias = $any($event.target).valueAsNumber"
+            name="prazoDias"
+            placeholder="Limite de dias para realizar a tarefa">
         </label>
         <button type="submit">Enviar Tarefa</button>
     </form>

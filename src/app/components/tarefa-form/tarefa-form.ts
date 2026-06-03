@@ -16,6 +16,8 @@ export class TarefaForm {
   private readonly cdr = inject(ChangeDetectorRef);
   private readonly tarefaService = inject(TarefaService);
 
+  prazoDias = 1;
+
   tarefa: Tarefa = {
     id: '',
     descricao: '',
@@ -26,7 +28,15 @@ export class TarefaForm {
   };
 
   salvar(): void {
-    this.tarefaService.criar(this.tarefa).subscribe({
+    const agora = Date.now();
+    const prazo = this.prazoDias * 24 * 60 * 60 * 1000;
+    const tarefaComPrazo: Tarefa = {
+      ...this.tarefa,
+      dataCriado: agora,
+      dataLimite: agora + prazo
+    };
+
+    this.tarefaService.criar(tarefaComPrazo).subscribe({
       next: () => {
         this.tarefa = {
           id: '',
@@ -36,6 +46,7 @@ export class TarefaForm {
           dataLimite: Date.now(),
           pendente: true
         };
+        this.prazoDias = 1;
 
         this.salvo.emit();
       },
