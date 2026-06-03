@@ -27,13 +27,11 @@ export class TarefaList {
       next: (dados) => {
         this.tarefas = dados;
         this.carregando = false;
-        this.cdr.detectChanges();
       },
       error: (erro) => {
         console.error('Erro ao carregar tarefas:', erro);
         alert('Erro ao carregar a lista de tarefas.');
         this.carregando = false;
-        this.cdr.detectChanges();
       }
     });
   }

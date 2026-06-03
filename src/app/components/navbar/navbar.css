@@ -1,21 +1,37 @@
-.navbar{
+.navbar {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(34, 140, 240);
+    background: linear-gradient(135deg, rgb(34, 140, 240) 0%, rgb(18, 105, 189) 100%);
     color: rgb(255, 255, 255);
-    border-radius: 10px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(34, 140, 240, 0.3);
+    margin: 10px;
+    padding: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.navbar-div{
+.navbar:hover {
+    box-shadow: 0 6px 20px rgba(34, 140, 240, 0.4);
+    transform: translateY(-2px);
+}
+
+.navbar-div {
     text-align: center;
     padding: 5px;
 }
 
-.navbar-div h1{
+.navbar-div h1 {
     margin: 3px;
-    font-size: 60px;
+    font-size: 48px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-
-
+.navbar-div p {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 300;
+    opacity: 0.9;
+}
