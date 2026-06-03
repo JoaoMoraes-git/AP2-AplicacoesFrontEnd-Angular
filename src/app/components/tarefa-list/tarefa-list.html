@@ -1,7 +1,11 @@
 <section class="card">
     <h1>Tarefas</h1>
 
-    @if(tarefas.length > 0) {
+    @if (carregando) {
+        <p>A lista de tarefas está sendo carregada...</p>
+    } @else if (tarefas.length === 0) {
+        <p>Nenhuma tarefa no momento</p>
+    } @else {
         <table>
             <thead>
                 <th>ID</th>
@@ -10,6 +14,7 @@
                 <th>Data de criação</th>
                 <th>Data Limite</th>
                 <th>Pendente</th>
+                <th>Ações</th>
             </thead>
             <tbody>
                 @for (tarefa of tarefas; track tarefa.id){
@@ -19,8 +24,11 @@
                         <td>{{ tarefa.nivelImportancia }}</td>
                         <td>{{ tarefa.dataCriado | date: 'dd/MM/yyyy' }}</td>
                         <td>{{ tarefa.dataLimite | date: 'dd/MM/yyyy' }}</td>
-                        <td>{{ tarefa.pendente }}</td>
+                        <td>{{ tarefa.pendente ? 'Sim' : 'Não' }}</td>
                         <td>
+                            <button type="button" (click)="alternarPendente(tarefa)">
+                                {{ tarefa.pendente ? 'Concluir' : 'Reabrir' }}
+                            </button>
                             <button type="button" (click)="editar(tarefa)">Editar</button>
                             <button type="button" (click)="excluir(tarefa)">Apagar</button>
                         </td>
@@ -28,12 +36,5 @@
                 }
             </tbody>
         </table>
-    
-    @if(carregando){
-        <p>A lista de tarefas está sendo carregada...</p>
-    }
-    @if(tarefas.length === 0 && !carregando){
-        <p>Nenhuma tarefa no momento</p>
-    }
     }
 </section>

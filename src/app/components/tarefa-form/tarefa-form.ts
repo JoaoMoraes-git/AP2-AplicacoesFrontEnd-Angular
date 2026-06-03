@@ -1,10 +1,10 @@
-import { ChangeDetectorRef ,Component, EventEmitter, inject, Output } from '@angular/core';
+import { ChangeDetectorRef, Component, EventEmitter, inject, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Tarefa } from '../../models/tarefa';
 import { TarefaService } from '../../services/tarefa.service';
 
 @Component({
-  standalone : true,
+  standalone: true,
   selector: 'app-tarefa-form',
   imports: [FormsModule],
   templateUrl: './tarefa-form.html',
@@ -17,9 +17,10 @@ export class TarefaForm {
   private readonly tarefaService = inject(TarefaService);
 
   prazoDias: number | null = null;
+  mensagemSucesso = '';
+  mensagemErro = '';
 
   tarefa: Tarefa = {
-    id: '',
     descricao: '',
     nivelImportancia: null as unknown as number,
     dataCriado: Date.now(),
@@ -28,18 +29,21 @@ export class TarefaForm {
   };
 
   salvar(): void {
+    this.mensagemSucesso = '';
+    this.mensagemErro = '';
+
     if (!this.tarefa.descricao || this.tarefa.descricao.trim() === '') {
-      alert('Por favor, digite uma descrição');
+      this.mensagemErro = 'Por favor, digite uma descrição';
       return;
     }
 
     if (!this.tarefa.nivelImportancia || this.tarefa.nivelImportancia <= 0) {
-      alert('Por favor, escolha um nível de importância');
+      this.mensagemErro = 'Por favor, escolha um nível de importância';
       return;
     }
 
     if (!this.prazoDias || this.prazoDias <= 0) {
-      alert('Por favor, defina um prazo válido (mínimo 1 dia)');
+      this.mensagemErro = 'Por favor, defina um prazo válido (mínimo 1 dia)';
       return;
     }
 
@@ -47,6 +51,7 @@ export class TarefaForm {
     const prazo = this.prazoDias * 24 * 60 * 60 * 1000;
     const tarefaComPrazo: Tarefa = {
       ...this.tarefa,
+      id: agora,
       dataCriado: agora,
       dataLimite: agora + prazo
     };
@@ -54,7 +59,6 @@ export class TarefaForm {
     this.tarefaService.criar(tarefaComPrazo).subscribe({
       next: () => {
         this.tarefa = {
-          id: '',
           descricao: '',
           nivelImportancia: null as unknown as number,
           dataCriado: Date.now(),
@@ -64,10 +68,12 @@ export class TarefaForm {
         this.prazoDias = null;
 
         this.salvo.emit();
-        alert('A tarefa foi adicionada');
+        this.mensagemSucesso = 'A tarefa foi adicionada com sucesso!';
+        setTimeout(() => this.mensagemSucesso = '', 3000);
       },
       error: (erro) => {
         console.error('Erro ao salvar tarefa:', erro);
+        this.mensagemErro = 'Erro ao salvar a tarefa. Tente novamente.';
       }
     });
   }

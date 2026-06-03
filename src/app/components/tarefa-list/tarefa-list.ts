@@ -31,8 +31,26 @@ export class TarefaList {
       },
       error: (erro) => {
         console.error('Erro ao carregar tarefas:', erro);
+        alert('Erro ao carregar a lista de tarefas.');
         this.carregando = false;
         this.cdr.detectChanges();
+      }
+    });
+  }
+
+  alternarPendente(tarefa: Tarefa): void {
+    if (!tarefa.id) return;
+
+    const tarefaAtualizada: Tarefa = {
+      ...tarefa,
+      pendente: !tarefa.pendente
+    };
+
+    this.tarefaService.atualizar(tarefa.id, tarefaAtualizada).subscribe({
+      next: () => this.carregarTarefas(),
+      error: (erro) => {
+        console.error('Erro ao alternar status da tarefa:', erro);
+        alert('Erro ao alternar o status da tarefa.');
       }
     });
   }
@@ -55,7 +73,10 @@ export class TarefaList {
 
     this.tarefaService.atualizar(tarefa.id, tarefaAtualizado).subscribe({
       next: () => this.carregarTarefas(),
-      error: (erro) => console.error('Erro ao editar tarefa:', erro)
+      error: (erro) => {
+        console.error('Erro ao editar tarefa:', erro);
+        alert('Erro ao editar a tarefa.');
+      }
     });
   }
 
@@ -71,8 +92,14 @@ export class TarefaList {
     }
 
     this.tarefaService.excluir(tarefa.id).subscribe({
-      next: () => this.carregarTarefas(),
-      error: (erro) => console.error('Erro ao excluir tarefa:', erro)
+      next: () => {
+        alert('Tarefa excluída com sucesso.');
+        this.carregarTarefas();
+      },
+      error: (erro) => {
+        console.error('Erro ao excluir tarefa:', erro);
+        alert('Erro ao excluir a tarefa.');
+      }
     });
   }
 }

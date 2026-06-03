@@ -68,9 +68,14 @@
             <p class="erro-validacao">Prazo não pode ser negativo ou vazio</p>
         }
 
+        @if (mensagemSucesso) {
+            <p style="color: green;">{{ mensagemSucesso }}</p>
+        }
+        @if (mensagemErro) {
+            <p style="color: red;">{{ mensagemErro }}</p>
+        }
+
         <button type="submit" [disabled]="form.invalid">{{ form.invalid ? 'Preencha todos os campos' : 'Enviar Tarefa' }}</button>
     </form>
 
 </section>
-
-<h1>Título do form</h1>

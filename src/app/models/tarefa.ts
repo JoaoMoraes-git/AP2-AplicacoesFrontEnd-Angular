@@ -3,6 +3,6 @@ export interface Tarefa {
     descricao: string;
     nivelImportancia: number | null;
     dataCriado: number;
-    dataLimite: number
+    dataLimite: number | null;
     pendente: boolean;
 }
