@@ -4,6 +4,7 @@ import { TarefaForm } from './components/tarefa-form/tarefa-form';
 import { TarefaList } from './components/tarefa-list/tarefa-list';
 
 @Component({
+  standalone: true,
   selector: 'app-root',
   imports: [Navbar, TarefaForm, TarefaList],
   templateUrl: './app.html',

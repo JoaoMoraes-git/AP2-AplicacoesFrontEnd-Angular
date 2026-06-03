@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { ChangeDetectorRef, Component, inject } from '@angular/core';
 import { Tarefa } from '../../models/tarefa';
 import { TarefaService } from '../../services/tarefa.service';
 import { CommonModule } from '@angular/common';
@@ -12,7 +12,7 @@ import { CommonModule } from '@angular/common';
 })
 export class TarefaList {
   private readonly tarefaService = inject(TarefaService);
-
+  private readonly cdr = inject(ChangeDetectorRef);
   tarefas: Tarefa[] = [];
   carregando = false;
 
@@ -27,10 +27,12 @@ export class TarefaList {
       next: (dados) => {
         this.tarefas = dados;
         this.carregando = false;
+        this.cdr.detectChanges();
       },
       error: (erro) => {
         console.error('Erro ao carregar tarefas:', erro);
         this.carregando = false;
+        this.cdr.detectChanges();
       }
     });
   }

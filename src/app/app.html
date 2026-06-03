@@ -1,6 +1,6 @@
 <app-navbar></app-navbar>
 
 <main class="container">
-  <app-tarefa-form></app-tarefa-form>
-  <app-tarefa-list></app-tarefa-list>
+  <app-tarefa-form (salvo)="lista.carregarTarefas()"></app-tarefa-form>
+  <app-tarefa-list #lista></app-tarefa-list>
 </main>

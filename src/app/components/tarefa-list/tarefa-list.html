@@ -18,11 +18,22 @@
                         <td>{{ tarefa.descricao }}</td>
                         <td>{{ tarefa.nivelImportancia }}</td>
                         <td>{{ tarefa.dataCriado | date: 'dd/MM/yyyy' }}</td>
-                        <td>{{ tarefa.dataLimite }}</td>
+                        <td>{{ tarefa.dataLimite | date: 'dd/MM/yyyy' }}</td>
                         <td>{{ tarefa.pendente }}</td>
+                        <td>
+                            <button type="button" (click)="editar(tarefa)">Editar</button>
+                            <button type="button" (click)="excluir(tarefa)">Apagar</button>
+                        </td>
                     </tr>
                 }
             </tbody>
         </table>
+    
+    @if(carregando){
+        <p>A lista de tarefas está sendo carregada...</p>
+    }
+    @if(tarefas.length === 0 && !carregando){
+        <p>Nenhuma tarefa no momento</p>
+    }
     }
 </section>

@@ -1,9 +1,10 @@
-import { Component, EventEmitter, inject, Output } from '@angular/core';
+import { ChangeDetectorRef ,Component, EventEmitter, inject, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Tarefa } from '../../models/tarefa';
 import { TarefaService } from '../../services/tarefa.service';
 
 @Component({
+  standalone : true,
   selector: 'app-tarefa-form',
   imports: [FormsModule],
   templateUrl: './tarefa-form.html',
@@ -12,6 +13,7 @@ import { TarefaService } from '../../services/tarefa.service';
 export class TarefaForm {
   @Output() salvo = new EventEmitter<void>();
 
+  private readonly cdr = inject(ChangeDetectorRef);
   private readonly tarefaService = inject(TarefaService);
 
   tarefa: Tarefa = {

@@ -1,80 +1,35 @@
 {
   "tarefas": [
     {
-      "id": "1",
-      "descricao": "Colocar o lixo para fora",
-      "nivelImportancia": "2",
-      "dataCriado": "2026-05-26",
-      "pendente": true
-    },
-    {
-      "id": "2",
-      "descricao": "Dar uma caminhada",
-      "nivelImportancia": "1",
-      "dataCriado": "2026-05-26",
-      "pendente": true
-    },
-    {
-      "id": "zbQgnIzXxY0",
-      "descricao": "",
-      "nivelImportancia": 1,
-      "dataCriado": 1779917307219,
-      "pendente": true
-    },
-    {
-      "id": "W9az3pvnHDM",
-      "descricao": "aadad",
-      "nivelImportancia": 1,
-      "dataCriado": 1780281797833,
-      "dataLimite": 1780281797833,
-      "pendente": true
-    },
-    {
-      "id": "UPP33RNOVmY",
-      "descricao": "",
-      "nivelImportancia": 0,
-      "dataCriado": 1780281809353,
-      "dataLimite": 1780281809353,
-      "pendente": true
-    },
-    {
-      "id": "dVUA0B4fGAc",
-      "descricao": "rws",
-      "nivelImportancia": 2,
-      "dataCriado": 1780281810850,
-      "dataLimite": 1780281810850,
-      "pendente": true
-    },
-    {
-      "id": "T0Qhlpz0Y1E",
-      "descricao": "fagsD",
-      "nivelImportancia": 1,
-      "dataCriado": 1780281896004,
-      "dataLimite": 1780281896004,
-      "pendente": true
-    },
-    {
-      "id": "66s4mCqFggY",
-      "descricao": "afa",
-      "nivelImportancia": 2,
-      "dataCriado": 1780282415166,
-      "dataLimite": 1780282415166,
-      "pendente": true
-    },
-    {
-      "id": "9U-54q_OAGU",
-      "descricao": "teste",
-      "nivelImportancia": 1,
-      "dataCriado": 1780348878781,
-      "dataLimite": 1780348878781,
-      "pendente": true
-    },
-    {
-      "id": "rKdjosJm4Ao",
-      "descricao": "",
+      "id": "voLE4eq_sOg",
+      "descricao": "Update",
       "nivelImportancia": 3,
-      "dataCriado": 1780349584542,
-      "dataLimite": 1780349584542,
+      "dataCriado": 1780448106145,
+      "dataLimite": 1780448106145,
+      "pendente": true
+    },
+    {
+      "id": "R2uMwZZ2jEg",
+      "descricao": "teste 7",
+      "nivelImportancia": 0,
+      "dataCriado": 1780448121737,
+      "dataLimite": 1780448121737,
+      "pendente": true
+    },
+    {
+      "id": "TP1-wo9r7O0",
+      "descricao": "Coisa nova aqui",
+      "nivelImportancia": 2,
+      "dataCriado": 1780448128439,
+      "dataLimite": 1780448128439,
+      "pendente": true
+    },
+    {
+      "id": "pC5t2LvfUcs",
+      "descricao": "",
+      "nivelImportancia": 1,
+      "dataCriado": 1780448788487,
+      "dataLimite": 1780448788487,
       "pendente": true
     }
   ],
